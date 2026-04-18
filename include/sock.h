@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 #include "structs.h"
 #include "string.h"
 #include "stdlib.h"
