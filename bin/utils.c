@@ -1,5 +1,4 @@
-#include <stdlib.h>   
-#include <uuid/uuid.h>
+#include "utils.h"
 
 char* generate_uuid() {
     uuid_t uuid;

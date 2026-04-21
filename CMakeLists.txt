@@ -15,7 +15,7 @@ add_library(mylib ${LIB_FILES})
 target_include_directories(mylib PUBLIC include)
 
 
-target_link_libraries(mylib PUBLIC Threads::Threads ${UUID_LIB})
+target_link_libraries(mylib PUBLIC ${UUID_LIB})
 
 add_executable(web_server ${SOURCES})
 target_link_libraries(web_server PRIVATE mylib)
