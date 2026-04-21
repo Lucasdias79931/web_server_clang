@@ -1,4 +1,4 @@
-FROM ubunto:24.04
+FROM ubuntu:24.04
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -20,4 +20,4 @@ RUN mkdir build && \
 
 EXPOSE 8000
 
-CMD ["./build/server"]
+CMD ["./build/web_server"]
