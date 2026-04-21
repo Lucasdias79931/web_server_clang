@@ -8,7 +8,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 find_package(Threads REQUIRED)
 
 file(GLOB SOURCES "src/*.c")
-file(GLOB LIB_FILES "lib/*.c")
+file(GLOB LIB_FILES "bin/*.c")
 
 add_library(mylib ${LIB_FILES})
 target_include_directories(mylib PUBLIC include)
