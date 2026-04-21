@@ -2,14 +2,11 @@
 #include <string.h>
 #include "http.h"
 
-// 🔍 Parse da primeira linha da requisição HTTP
 void http_parse_request(const char *raw, struct HttpRequest *req) {
     if (!raw || !req) return;
 
-    // Inicializa estrutura (evita lixo)
     memset(req, 0, sizeof(struct HttpRequest));
 
-    // Extrai: METHOD PATH VERSION
     sscanf(raw, "%7s %255s %15s", req->method, req->path, req->version);
 }
 
