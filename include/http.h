@@ -1,11 +1,16 @@
 #pragma once
 
-struct HttpRequest{
+struct HttpRequest {
     char method[8];
-    char *path;
+    char path[256];
     char version[16];
 };
 
-void parser_http_requests(const char *row, HttpRequest *request);
-void parser_http_response(char *buffer, const char *body);
+void http_parse_request(const char *raw, struct HttpRequest *request);
 
+void http_build_response(
+    char *buffer,
+    int status_code,
+    const char *content_type,
+    const char *body
+);

@@ -41,18 +41,24 @@ int create_server_socket(struct Target_sock* target){
         exit(EXIT_FAILURE);
     }
 
-
     struct sockaddr_in addr;
+    memset(&addr, 0, sizeof(addr)); 
+
     addr.sin_family = AF_INET;
-    addr.sin_port = target->port;
-    addr.sin_addr.s_addr = inet_addr(target->host);
+    addr.sin_port = htons(target->port); 
+    addr.sin_addr.s_addr = INADDR_ANY;   
+
+    if(bind(server_fd, (struct sockaddr*)&addr, sizeof(addr)) < 0){
+        perror("bind failed");
+        exit(EXIT_FAILURE);
+    }
 
     if(listen(server_fd, 10) < 0){
         perror("listen failed");
         exit(EXIT_FAILURE);
     }
 
-    printf("\nServe listening in {%s}:{%i}\n",target->host,target->port);
+    printf("\nServer listening on port %d\n", target->port);
 
     return server_fd;
 }
