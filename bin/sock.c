@@ -53,7 +53,7 @@ int create_server_socket(struct Target_sock* target){
         exit(EXIT_FAILURE);
     }
 
-    if(listen(server_fd, 10) < 0){
+    if(listen(server_fd, 1000) < 0){
         perror("listen failed");
         exit(EXIT_FAILURE);
     }
